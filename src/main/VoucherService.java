@@ -1,6 +1,7 @@
 public class VoucherService {
     public double calculatePrice(double total, double discount) {
-        // SAI LẦM: Không có rào chắn, dẫn đến giá trị âm (Lỗi thảm họa 11/11)
-        return total - discount; 
+        // ÁP DỤNG POKA-YOKE: Dùng Math.max để chặn giá sàn là 0
+        double finalPrice = total - discount;
+        return Math.max(0, finalPrice); 
     }
 }
